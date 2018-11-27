@@ -1,0 +1,10 @@
+#/bin/bash
+
+#将本地公钥传输到18-34服务器
+for ip in {18..34}
+do
+	cat pwd | while read pwds;do
+	sshpass -p$pwds ssh-copy-id  172.16.10.$ip 2>/dev/null
+	done
+done
+
